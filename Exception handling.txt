@@ -1,0 +1,118 @@
+Q1
+
+class A extends Exception{
+  void m(){  int a=8/0;
+    System.out.println(a);
+  }
+  void n(){
+      m();
+  }
+  void p(){
+      n();
+  }
+}
+public class Main{
+    public static void main(String[]args){
+        try{
+            A p =new A();
+            p.p();
+        }
+        catch(Exception ex){
+            System.out.println("handle");
+        }
+    }
+}
+-----------------------------
+Q2
+import java.io.IOException;
+class A{
+    void show()throws IOException{
+        throw new IOException ("device problem");
+    }
+}
+public class Main{
+    public static void main(String[]args){
+        A p=new A();
+        try{
+           p.show(); 
+        }
+        catch(Exception ex){
+            System.out.println("hello");
+        }
+        
+    }
+}
+------------------------------------
+Q3
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String name = null; 
+            System.out.println(name.length());
+        } catch (NullPointerException ex) { 
+            System.out.println("Handle");
+        }
+    }
+}
+-------------------------------------------
+Q4
+public class Main {
+    public static void main(String[] args) {
+        try {
+           int a=9/0;
+           System.out.println(a);
+        } catch (ArithmeticException ex) { 
+            System.out.println("Handle");
+        }
+    }
+}
+
+----------------------------------------
+Q5
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+           int a=9/0;
+           System.out.println(a);
+        } catch (ArithmeticException ex) { 
+            System.out.println("Handle");
+        }
+        finally{
+            System.out.println("rest of the code");
+            
+        }
+    }
+}
+----------------------------------------
+Q6
+public class Main {
+    public static void main(String[] args) {
+        try {
+           int a[] = {1, 2, 3, 6, 7};
+           System.out.println(a[6]);
+        } catch (ArrayIndexOutOfBoundsException ex) {  
+            System.out.println("Handle"); 
+        } finally {
+            System.out.println("Rest of the code");  
+        }
+    }
+}
+-----------------------------------------
+Q7
+public class Main {
+    public static void main(String[] args) {
+        try {
+           int a[] = {1, 2, 3, 6, 7};
+           System.out.println(a[6]);
+        } catch (ArrayIndexOutOfBoundsException ex) {  
+            System.out.println("Handle"); 
+        }
+        catch(Exception ex){
+            System.out.println("hello");
+        }
+        finally {
+            System.out.println("Rest of the code");  
+        }
+    }
+}
